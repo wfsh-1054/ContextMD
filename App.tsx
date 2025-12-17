@@ -45,12 +45,30 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Settings State (Initialize from localStorage if available, else default)
+  // Settings State (Initialize from localStorage if available, else detect browser language)
   const [theme, setTheme] = useState<ThemeMode>(() => {
     return (localStorage.getItem('theme') as ThemeMode) || 'dark';
   });
+
   const [lang, setLang] = useState<Language>(() => {
-    return (localStorage.getItem('lang') as Language) || 'en';
+    // 1. Check local storage first
+    const savedLang = localStorage.getItem('lang') as Language;
+    if (savedLang && ['en', 'zh-TW', 'zh-CN', 'ja', 'ko'].includes(savedLang)) {
+      return savedLang;
+    }
+
+    // 2. Detect browser language
+    const browserLang = navigator.language.toLowerCase();
+    
+    if (browserLang.startsWith('zh')) {
+      // Map 'zh-TW', 'zh-HK' to Traditional, others to Simplified
+      return (browserLang.includes('tw') || browserLang.includes('hk')) ? 'zh-TW' : 'zh-CN';
+    }
+    if (browserLang.startsWith('ja')) return 'ja';
+    if (browserLang.startsWith('ko')) return 'ko';
+    
+    // 3. Default to English
+    return 'en';
   });
 
   const t = translations[lang];

@@ -11,13 +11,13 @@ export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ content, class
         components={{
           // Customize specific elements if needed
           a: ({node, ...props}) => <a {...props} className="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer" />,
-          pre: ({node, ...props}) => <pre {...props} className="bg-slate-100 dark:bg-slate-800 rounded-lg p-4 overflow-x-auto border border-slate-200 dark:border-slate-700" />,
+          pre: ({node, ...props}) => <pre {...props} className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-50 rounded-lg p-4 overflow-x-auto border border-slate-200 dark:border-slate-700" />,
           code: ({node, ...props}) => {
              const isInline = !props.className?.includes('language-');
              return (
                <code 
                  {...props} 
-                 className={`${isInline ? 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-1.5 py-0.5 rounded text-sm font-mono border border-slate-200 dark:border-slate-700' : 'block text-sm font-mono'}`} 
+                 className={`${isInline ? 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-1.5 py-0.5 rounded text-sm font-mono border border-slate-200 dark:border-slate-700' : 'block text-sm font-mono text-slate-900 dark:text-slate-50'}`} 
                />
              );
           },

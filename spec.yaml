@@ -1,5 +1,5 @@
 app_name: "ContextMD"
-version: "1.1.0"
+version: "1.1.1"
 description: "A real-time Markdown editing tool with split-view preview and JSON formatting utilities."
 
 requirements:
@@ -16,9 +16,12 @@ requirements:
       features:
         - "GitHub Flavored Markdown support"
         - "Typography styling for readability"
+        - "Light/Dark mode optimized code blocks"
     - id: "layout"
       type: "UI"
       description: "Responsive split-screen layout."
+      features:
+        - "Split view, Editor only, Preview only modes"
   
   utilities:
     - id: "json_export"
@@ -28,6 +31,12 @@ requirements:
         - "Replace newlines with \\n"
         - "Escape double quotes"
         - "Copy to clipboard"
+    - id: "i18n"
+      type: "System"
+      description: "Internationalization support"
+      features:
+        - "Languages: EN, ZH-TW, ZH-CN, JA, KO"
+        - "Auto-detect browser language on first load"
 
 tech_stack:
   framework: "React 18"
