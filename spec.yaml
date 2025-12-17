@@ -1,0 +1,45 @@
+app_name: "ContextMD"
+version: "1.1.0"
+description: "A real-time Markdown editing tool with split-view preview and JSON formatting utilities."
+
+requirements:
+  core:
+    - id: "editor_pane"
+      type: "Input"
+      description: "A text area for writing raw Markdown syntax."
+      features:
+        - "Syntax highlighting (simulated via monospace font)"
+        - "Auto-expanding or scrollable"
+    - id: "preview_pane"
+      type: "Output"
+      description: "Real-time rendering of the Markdown content."
+      features:
+        - "GitHub Flavored Markdown support"
+        - "Typography styling for readability"
+    - id: "layout"
+      type: "UI"
+      description: "Responsive split-screen layout."
+  
+  utilities:
+    - id: "json_export"
+      type: "Tool"
+      description: "Convert markdown content into a single-line JSON-escaped string."
+      features:
+        - "Replace newlines with \\n"
+        - "Escape double quotes"
+        - "Copy to clipboard"
+
+tech_stack:
+  framework: "React 18"
+  language: "TypeScript"
+  styling: "Tailwind CSS (with Typography plugin)"
+  icons: "Lucide React"
+  markdown_engine: "react-markdown"
+
+ui_theme:
+  mode: "Dark/Light (System or toggle)"
+  colors:
+    primary: "Indigo"
+    background: "Slate-950"
+    surface: "Slate-900"
+    text: "Slate-200"

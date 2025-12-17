@@ -1,0 +1,5 @@
+{
+  "name": "ContextMD",
+  "description": "A real-time Markdown editor with instant preview.",
+  "requestFramePermissions": []
+}
